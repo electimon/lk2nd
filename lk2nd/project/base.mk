@@ -79,5 +79,5 @@ include $(if $(filter msm8660 msm8960, $(TARGET)), lk2nd/project/msm8x60.mk)
 
 # Enable extlinux boot module for all targets with eMMC/UFS
 ifeq ($(EMMC_BOOT), 1)
-MODULES += lk2nd/boot
+#MODULES += lk2nd/boot
 endif
