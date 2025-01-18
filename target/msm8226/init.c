@@ -382,8 +382,8 @@ unsigned check_reboot_mode(void)
 	uint32_t restart_reason = 0;
 
 	/* Read reboot reason and scrub it */
-	restart_reason = readl(RESTART_REASON_ADDR);
-	writel(0x00, RESTART_REASON_ADDR);
+	restart_reason = readl(LK2ND_RESTART_REASON_ADDR);
+	writel(0x00, LK2ND_RESTART_REASON_ADDR);
 
 	return restart_reason;
 }
@@ -410,7 +410,7 @@ void reboot_device(unsigned reboot_reason)
 		return;
 	}
 
-	writel(reboot_reason, RESTART_REASON_ADDR);
+	writel(reboot_reason, LK2ND_RESTART_REASON_ADDR);
 
 	/* Configure PMIC for warm reset */
 	pm8x41_reset_configure(PON_PSHOLD_WARM_RESET);
